@@ -17,7 +17,13 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
 import { Empty } from "@/components/ui/empty";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
@@ -32,8 +38,8 @@ const PhotoPage = () => {
     defaultValues: {
       prompt: "",
       amount: "1",
-      resolution: "512x512"
-    }
+      resolution: "512x512",
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -41,36 +47,33 @@ const PhotoPage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setPhotos([]);
+      const response = await axios.post("/api/image", values);
 
-      const response = await axios.post('/api/image', values);
-
-      const urls = response.data.map((image: { url: string }) => image.url);
-
-      setPhotos(urls);
+      setPhotos(response.data);
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModal.onOpen();
       } else {
-        toast.error("Something went wrong.");
+        toast.error("Something went wrong. Please try again.");
       }
     } finally {
       router.refresh();
     }
-  }
+  };
 
-  return ( 
+  return (
     <div>
       <Heading
         title="Image Generation"
-        description="Turn your prompt into an image."
+        description="Turn your prompt into an image. We use Stable Diffusion for the best quality outputs. Be as descriptive as possible."
         icon={ImageIcon}
         iconColor="text-pink-700"
         bgColor="bg-pink-700/10"
       />
       <div className="px-4 lg:px-8">
         <Form {...form}>
-          <form 
-            onSubmit={form.handleSubmit(onSubmit)} 
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
             className="
               rounded-lg 
               border 
@@ -91,8 +94,8 @@ const PhotoPage = () => {
                   <FormControl className="m-0 p-0">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                      disabled={isLoading} 
-                      placeholder="A picture of a horse in Swiss alps" 
+                      disabled={isLoading}
+                      placeholder="A picture of a horse in Swiss alps"
                       {...field}
                     />
                   </FormControl>
@@ -104,10 +107,10 @@ const PhotoPage = () => {
               name="amount"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-2">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
                     defaultValue={field.value}
                   >
                     <FormControl>
@@ -117,10 +120,7 @@ const PhotoPage = () => {
                     </FormControl>
                     <SelectContent>
                       {amountOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
+                        <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
                       ))}
@@ -134,10 +134,10 @@ const PhotoPage = () => {
               name="resolution"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-2">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
                     defaultValue={field.value}
                   >
                     <FormControl>
@@ -147,10 +147,7 @@ const PhotoPage = () => {
                     </FormControl>
                     <SelectContent>
                       {resolutionOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
+                        <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
                       ))}
@@ -159,7 +156,12 @@ const PhotoPage = () => {
                 </FormItem>
               )}
             />
-            <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+            <Button
+              className="col-span-12 lg:col-span-2 w-full"
+              type="submit"
+              disabled={isLoading}
+              size="icon"
+            >
               Generate
             </Button>
           </form>
@@ -176,14 +178,15 @@ const PhotoPage = () => {
           {photos.map((src) => (
             <Card key={src} className="rounded-lg overflow-hidden">
               <div className="relative aspect-square">
-                <Image
-                  fill
-                  alt="Generated"
-                  src={src}
-                />
+                <Image fill alt="Generated" src={src} />
+                {src}
               </div>
               <CardFooter className="p-2">
-                <Button onClick={() => window.open(src)} variant="secondary" className="w-full">
+                <Button
+                  onClick={() => window.open(src)}
+                  variant="secondary"
+                  className="w-full"
+                >
                   <Download className="h-4 w-4 mr-2" />
                   Download
                 </Button>
@@ -193,7 +196,7 @@ const PhotoPage = () => {
         </div>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default PhotoPage;

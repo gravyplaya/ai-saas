@@ -11,8 +11,9 @@ import "./globals.css";
 const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tavonn AI",
-  description: "AI Platform",
+  title: "Tavonni",
+  description:
+    "Tavonni takes care of painful migrations to new and future technologies, to enable the business of tomorrow.",
 };
 
 export default async function RootLayout({

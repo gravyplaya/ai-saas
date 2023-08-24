@@ -6,8 +6,8 @@ export const Loader = () => {
       <div className="w-10 h-10 relative animate-spin">
         <Disc3 size={40} />
       </div>
-      <p className="text-sm text-muted-foreground">
-        Tavonn AI is thinking...
+      <p className="text-sm text-muted-foreground text-center">
+        TavonnAI is thinking...
         <br />
         Wait time depends on queue.
       </p>

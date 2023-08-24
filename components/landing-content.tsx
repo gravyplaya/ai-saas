@@ -32,6 +32,14 @@ const testimonials = [
 ];
 const services = [
   {
+    name: "Celebrity Personas",
+    avatar: "M",
+    title:
+      "<a href='https://celebritypersonas.com' target='new'>Chat with your favorite celebrity now.</a>",
+    description:
+      "Ever wanted to chat with your favorite celebrity? Now you can! Kinda...",
+  },
+  {
     name: "Bot Builders",
     avatar: "J",
     title:
@@ -66,7 +74,7 @@ const services = [
   {
     name: "AI Tools",
     avatar: "M",
-    title: "<a href='/dashboard'>Get Started Now For FREE</a>",
+    title: "<a href='/sign-up'>Get Started Now For FREE</a>",
     description:
       "Try everything from image, video and music generation to code generation and conversations.",
   },

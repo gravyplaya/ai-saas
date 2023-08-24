@@ -28,7 +28,7 @@ const MusicPage = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-    }
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -37,8 +37,7 @@ const MusicPage = () => {
     try {
       setMusic(undefined);
 
-      const response = await axios.post('/api/music', values);
-      console.log(response)
+      const response = await axios.post("/api/music", values);
 
       setMusic(response.data.audio);
       form.reset();
@@ -46,26 +45,26 @@ const MusicPage = () => {
       if (error?.response?.status === 403) {
         proModal.onOpen();
       } else {
-        toast.error("Something went wrong.");
+        toast.error("Something went wrong. Please try again.");
       }
     } finally {
       router.refresh();
     }
-  }
+  };
 
-  return ( 
+  return (
     <div>
       <Heading
         title="Music Generation"
-        description="Turn your prompt into music."
+        description="Turn your prompt into music. Only 5 seconds of music will be generated."
         icon={Music}
         iconColor="text-emerald-500"
         bgColor="bg-emerald-500/10"
       />
       <div className="px-4 lg:px-8">
         <Form {...form}>
-          <form 
-            onSubmit={form.handleSubmit(onSubmit)} 
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
             className="
               rounded-lg 
               border 
@@ -86,15 +85,20 @@ const MusicPage = () => {
                   <FormControl className="m-0 p-0">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                      disabled={isLoading} 
-                      placeholder="Piano solo" 
+                      disabled={isLoading}
+                      placeholder="Piano solo"
                       {...field}
                     />
                   </FormControl>
                 </FormItem>
               )}
             />
-            <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+            <Button
+              className="col-span-12 lg:col-span-2 w-full"
+              type="submit"
+              disabled={isLoading}
+              size="icon"
+            >
               Generate
             </Button>
           </form>
@@ -104,9 +108,7 @@ const MusicPage = () => {
             <Loader />
           </div>
         )}
-        {!music && !isLoading && (
-          <Empty label="No music generated." />
-        )}
+        {!music && !isLoading && <Empty label="No music generated." />}
         {music && (
           <audio controls className="w-full mt-8">
             <source src={music} />
@@ -114,7 +116,7 @@ const MusicPage = () => {
         )}
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default MusicPage;

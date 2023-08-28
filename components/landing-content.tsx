@@ -43,15 +43,15 @@ const services = [
     name: "Bot Builders",
     avatar: "J",
     title:
-      "<a href='https://tidycal.com/geovanni' target='new'>Book a free introductory call now.</a>",
+      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
     description:
       "We craft AI-powered chatbots trained on your data that not only answer questions but engage in witty banter too!",
   },
   {
-    name: "AI Evolution",
+    name: "AI Consultations",
     avatar: "A",
     title:
-      "<a href='https://tidycal.com/geovanni' target='new'>Book a free introductory call now.</a>",
+      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
     description:
       "Transform your business with tailored AI solutions that evolve as fast as your goals do.",
   },
@@ -59,17 +59,17 @@ const services = [
     name: "Automate & Conquer",
     avatar: "M",
     title:
-      "<a href='https://tidycal.com/geovanni' target='new'>Book a free introductory call now.</a>",
+      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
     description:
       "Let AI streamline your processes, so you can focus on conquering your industry.",
   },
   {
-    name: "AI Futurists",
+    name: "AI Development",
     avatar: "M",
     title:
-      "<a href='https://tidycal.com/geovanni' target='new'>Book a free introductory call now.</a>",
+      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
     description:
-      "Partner with us to turn AI dreams into reality, pushing boundaries without fearing feathers ruffled.",
+      "Partner with us to turn AI dreams into reality. Outsource your AI development to us. From chatbots to custom solutions we can do it all.",
   },
   {
     name: "AI Tools",
@@ -82,40 +82,103 @@ const services = [
     name: "Content Creation",
     avatar: "M",
     title:
-      "<a href='https://tidycal.com/geovanni' target='new'>Book a free introductory call now.</a>",
+      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
     description:
       "Have a social media channel and need help generating content? Need more followers or ideas?",
   },
 ];
+const whatWeDid = [
+  {
+    name: "Integrated Data Center Management",
+    avatar: "M",
+    title:
+      "<a href='https://patents.justia.com/patent/9201702' target='new'>Integrated Data Center Management</a>",
+    description:
+      "Patent #9201702 granted on the interface that allows enterprises to manage their cloud resources in the browser.",
+  },
+  {
+    name: "Cognitive UI",
+    avatar: "M",
+    title:
+      "<a href='https://www.youtube.com/watch?v=20huYR5o214' target='new'>Demo Video</a>",
+    description:
+      "Developed a futuristic Cognitive UI display that changes based on a persons proximity and location to the screen.",
+  },
+  {
+    name: "Blockchain Voting",
+    avatar: "M",
+    title: "",
+    description:
+      "Created the first voting platform that exceeds current election standards by huge margins flawlessly and securely. Guaranteeing perfect vote count, verifiable votes, instant reporting, etc.",
+  },
+  {
+    name: "YouTube LoFi Music Channel",
+    avatar: "M",
+    title:
+      "<a href='https://www.youtube.com/@MerlinMusic_' target='new'>LoFi Merlin Music</a>",
+    description:
+      "Our tools are used to create music and video content for this YouTube channel",
+  },
+];
 export const LandingContent = () => {
   return (
-    <div className="px-10 pb-20">
-      <h2 className="text-center text-4xl text-white font-extrabold mb-10">
-        What We Do
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {services.map((item) => (
-          <Card
-            key={item.description}
-            className="bg-[#192339] border-none text-white"
-          >
-            <CardHeader>
-              <CardTitle className="flex items-center gap-x-2">
-                <div>
-                  <p className="text-lg">{item.name}</p>
-                  <p
-                    className="text-zinc-400 text-sm"
-                    dangerouslySetInnerHTML={{ __html: item.title }}
-                  ></p>
-                </div>
-              </CardTitle>
-              <CardContent className="pt-4 px-0">
-                {item.description}
-              </CardContent>
-            </CardHeader>
-          </Card>
-        ))}
+    <section className=" bodyGradient">
+      <div className="px-10 pb-20">
+        <h2 className="text-center text-4xl text-white font-extrabold mb-10">
+          What We Do
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {services.map((item) => (
+            <Card
+              key={item.description}
+              className="bg-[#192339] border-none text-white"
+            >
+              <CardHeader>
+                <CardTitle className="flex items-center gap-x-2">
+                  <div>
+                    <p className="text-lg">{item.name}</p>
+                    <p
+                      className="text-zinc-400 text-sm underline"
+                      dangerouslySetInnerHTML={{ __html: item.title }}
+                    ></p>
+                  </div>
+                </CardTitle>
+                <CardContent className="pt-4 px-0">
+                  {item.description}
+                </CardContent>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
+      <div className="px-10 pb-20">
+        <h2 className="text-center text-4xl text-white font-extrabold mb-10">
+          What We Did
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {whatWeDid.map((item) => (
+            <Card
+              key={item.description}
+              className="bg-[#192339] border-none text-white"
+            >
+              <CardHeader>
+                <CardTitle className="flex items-center gap-x-2">
+                  <div>
+                    <p className="text-lg">{item.name}</p>
+                    <p
+                      className="text-zinc-400 text-sm underline"
+                      dangerouslySetInnerHTML={{ __html: item.title }}
+                    ></p>
+                  </div>
+                </CardTitle>
+                <CardContent className="pt-4 px-0">
+                  {item.description}
+                </CardContent>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };

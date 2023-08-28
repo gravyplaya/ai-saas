@@ -1,5 +1,6 @@
 import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
+import { useSearchParams } from "next/navigation";
 
 import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
@@ -46,7 +47,7 @@ export async function GET() {
               name: "Tavonn AI Pro",
               description: "Unlimited AI Generations",
             },
-            unit_amount: 4900,
+            unit_amount: 2000,
             recurring: {
               interval: "month",
             },

@@ -10,7 +10,7 @@ export const LandingHero = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="text-white font-bold py-36 text-center space-y-5">
+    <div className="text-white font-bold py-36 text-center space-y-5 bodyGradient">
       <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-5 font-extrabold">
         <h1>The Best AI Agency for</h1>
         <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
@@ -29,7 +29,7 @@ export const LandingHero = () => {
           />
         </div>
       </div>
-      <div className="text-sm md:text-xl font-light text-zinc-400">
+      <div className="text-sm md:text-xl font-light text-white-400">
         Tavonni takes care of painful migrations to new and future technologies,
         to enable the business of tomorrow.
       </div>
@@ -43,7 +43,7 @@ export const LandingHero = () => {
           </Button>
         </Link>
       </div>
-      <div className="text-sm md:text-xl font-light text-zinc-400">
+      <div className="text-sm md:text-xl font-light text-white-400">
         Try everything from image, video and music generation
         <br /> to code generation and conversations.
       </div>

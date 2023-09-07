@@ -17,10 +17,9 @@ export const LandingHero = () => {
           <TypewriterComponent
             options={{
               strings: [
-                "Chatbot Development.",
+                "AI Development.",
                 "AI Tools.",
                 "Multimedia Generation.",
-                "AI Development.",
                 "Content Creation.",
               ],
               autoStart: true,
@@ -29,7 +28,7 @@ export const LandingHero = () => {
           />
         </div>
       </div>
-      <div className="text-sm md:text-xl font-light text-white-400">
+      <div className="text-sm md:text-xl font-semibold text-white-400">
         Tavonni takes care of painful migrations to new and future technologies,
         to enable the business of tomorrow.
       </div>

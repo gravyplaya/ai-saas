@@ -1,6 +1,15 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Card2,
+  Card2Content,
+  Card2Header,
+  Card2Title,
+} from "@/components/ui/card";
 
 const testimonials = [
   {
@@ -34,90 +43,100 @@ const services = [
   {
     name: "Celebrity Personas",
     avatar: "M",
-    title:
-      "<a href='https://celebritypersonas.com' target='new'>Chat with your favorite celebrity now.</a>",
+    title: "",
     description:
       "Ever wanted to chat with your favorite celebrity? Now you can! Kinda...",
+    button: "https://celebritypersonas.com",
   },
   {
     name: "AI Assistant Builders",
     avatar: "J",
-    title:
-      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
+    title: "",
     description:
       "We craft AI-powered assistants trained on your data that not only answer questions but engage in witty banter too!",
+    button: "https://tidycal.com/geovanni/15-min-intro-call",
   },
   {
     name: "AI Consultations",
     avatar: "A",
-    title:
-      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
+    title: "",
     description:
       "Transform your business with tailored AI solutions that evolve as fast as your goals do.",
+    button: "https://tidycal.com/geovanni/15-min-intro-call",
   },
   {
     name: "Automate & Conquer",
     avatar: "M",
-    title:
-      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
+    title: "",
     description:
       "Let AI streamline your processes, so you can focus on conquering your industry.",
+    button: "https://tidycal.com/geovanni/15-min-intro-call",
   },
   {
     name: "AI Development",
     avatar: "M",
-    title:
-      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
+    title: "",
     description:
       "Partner with us to turn AI dreams into reality. Outsource your AI development to us. From AI Assistants to custom solutions we can do it all.",
+    button: "https://tidycal.com/geovanni/15-min-intro-call",
   },
   {
     name: "AI Tools",
     avatar: "M",
-    title: "<a href='/sign-up'>Get Started Now For FREE</a>",
+    title: "Get Started Now For FREE",
     description:
       "Try everything from image, video and music generation to code generation and conversations.",
+    button: "/sign-up",
   },
   {
     name: "Content Creation",
     avatar: "M",
-    title:
-      "<a href='https://tidycal.com/geovanni/15-min-intro-call' target='new'>Book a free introductory call now.</a>",
+    title: "",
     description:
       "Have a social media channel and need help generating content? Need more followers or ideas?",
+    button: "https://tidycal.com/geovanni/15-min-intro-call",
+  },
+  {
+    name: "Business Process Automation",
+    avatar: "M",
+    title: "",
+    description:
+      "Let us automate your business processes so you can focus on what matters most.",
+    button: "https://tidycal.com/geovanni/15-min-intro-call",
   },
 ];
 const whatWeDid = [
   {
     name: "Integrated Data Center Management",
     avatar: "M",
-    title:
-      "<a href='https://patents.justia.com/patent/9201702' target='new'>Integrated Data Center Management</a>",
+    title: "Integrated Data Center Management",
     description:
       "Patent #9201702 granted on the interface that allows enterprises to manage their cloud resources in the browser.",
+    button: "https://patents.justia.com/patent/9201702",
   },
   {
-    name: "Cognitive UI",
+    name: "VoiceFlow Template",
     avatar: "M",
-    title:
-      "<a href='https://www.youtube.com/watch?v=20huYR5o214' target='new'>Demo Video</a>",
+    title: "Lead Generation Assistant",
     description:
-      "Developed a futuristic Cognitive UI display that changes based on a persons proximity and location to the screen.",
+      "Create dynamic carousels, integrate Calendly, display YouTube and Loom videos, and qualify leads with an interactive quiz.",
+    button: "https://www.voiceflow.com/marketplace/dynamic-carousels",
   },
   {
-    name: "Blockchain Voting",
-    avatar: "M",
-    title: "",
+    name: "Cognitive UI Prototype",
+    avatar: "B",
+    title: "Cognitive UI Design",
     description:
-      "Created the first voting platform that exceeds current election standards by huge margins flawlessly and securely. Guaranteeing perfect vote count, verifiable votes, instant reporting, etc.",
+      "Created a cognitive smart display for financial data interaction and privacy, without relying on cameras.",
+    button: "https://www.youtube.com/watch?v=20huYR5o214",
   },
   {
     name: "YouTube LoFi Music Channel",
     avatar: "M",
-    title:
-      "<a href='https://www.youtube.com/@MerlinMusic_' target='new'>LoFi Merlin Music</a>",
+    title: "LoFi Merlin Music",
     description:
       "Our tools are used to create music and video content for this YouTube channel. We can do the same for you.",
+    button: "https://www.youtube.com/@MerlinMusic_",
   },
 ];
 
@@ -125,32 +144,55 @@ const bots = [
   {
     name: "Study Guide Assistant",
     avatar: "M",
-    title:
-      "<a href='https://creator.voiceflow.com/prototype/64e0113d2c78ff8ea562245f' target='new'>Try Now</a>",
+    title: "Try Now",
+    button: "https://creator.voiceflow.com/prototype/64e0113d2c78ff8ea562245f",
+    features: [
+      "Use your own lesson plans to teach",
+      "Interactive with multimedia questions and answers",
+      "Personalized learning experience",
+    ],
     description:
-      "Are you a student? Need help studying? This assistant will help you study for your next exam. Are you a teacher and need a new way to teach your students? This assistant will help you teach your students.",
+      "Are you a student? Need help studying? Are you a teacher and need a new way to teach your students? This assistant will help you learn and teach your students.",
   },
   {
     name: "Sales Rep Assistant",
     avatar: "M",
-    title:
-      "<a href='https://creator.voiceflow.com/prototype/64dc97bb9f9d270007f8f310' target='new'>Try Now</a>",
+    title: "Try Now",
+    button: "https://creator.voiceflow.com/prototype/64dc97bb9f9d270007f8f310",
+    features: [
+      "Used for sales and training",
+      "Knowledge Base based on website information",
+      "Users can submit incident reports via WhatsApp or web.",
+    ],
     description:
-      "Do you need help getting sales or training your sales team? This assistant will help you get more sales and train your sales reps.",
+      "Do you need help getting sales or training your sales team? What about helping customers with product information? This assistant will help you get more sales and train your sales reps.",
   },
   {
     name: "Real Estate Lead Assistant",
     avatar: "M",
-    title:
-      "<a href='https://creator.voiceflow.com/prototype/64e004c8c445b8000749fb72' target='new'>Try Now</a>",
+    title: "Try Now",
+    button: "https://creator.voiceflow.com/prototype/64e004c8c445b8000749fb72",
+    features: [
+      "Get listings in realtime from the web",
+      "Schedule Showings",
+      "Agent Training",
+      "Manage Sales Calls",
+      "Client Onboarding",
+      "Reccomendations",
+    ],
     description:
-      "Do you need help getting leads for your real estate business? Schedule showings and see availability. Are you a real estate manager and need a new way to train your real estate agents? Tired of getting sales calls all time of the day? Have your assistant handle the calls for you.",
+      "Need help with lead generation, scheduling showings, agent training, or managing sales calls? Let your assistant handle it all!",
   },
   {
-    name: "Personas",
+    name: "Custom Personas",
     avatar: "M",
-    title:
-      "<a href='https://creator.voiceflow.com/prototype/64dc7d089f9d270007f8f194' target='new'>Try Now</a>",
+    title: "Try Now",
+    button: "https://creator.voiceflow.com/prototype/64dc7d089f9d270007f8f194",
+    features: [
+      "An online persona trained on social media accounts and public interviews.",
+      "Engage in conversations with your favorite celebrity.",
+      "Fully customizable.",
+    ],
     description:
       "Talk to an online persona trained on data from their social media accounts and public interviews. This persona based on Napheesa Collier's wiki page and interviews.",
   },
@@ -160,32 +202,49 @@ export const LandingContent = () => {
     <section className=" bodyGradient">
       <div className="px-10 pb-20">
         <h2 className="text-center text-4xl text-white font-extrabold mb-5">
-          Buy an AI Assistant
+          Get Your AI Assistant Now
         </h2>
         <h3 className="text-center text-2xl text-white font-bold mb-10">
-          Trained on your data. 2 day delivery.
+          Trained on your data. Customized for you. Fast delivery.
         </h3>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {bots.map((item) => (
-            <Card
+            <div
               key={item.description}
-              className="bg-[#192339] border-none text-white"
+              className="block rounded-lg bg-white  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700"
             >
-              <CardHeader>
-                <CardTitle className="flex items-center gap-x-2">
-                  <div>
-                    <p className="text-lg">{item.name}</p>
-                    <p
-                      className="text-zinc-400 text-sm underline"
-                      dangerouslySetInnerHTML={{ __html: item.title }}
-                    ></p>
-                  </div>
-                </CardTitle>
-                <CardContent className="pt-4 px-0">
+              <div className="border-b-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50 text-center font-bold">
+                Featured
+              </div>
+              <div className="p-6">
+                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50 text-center break-normal">
+                  {item.name}
+                </h5>
+                <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
                   {item.description}
-                </CardContent>
-              </CardHeader>
-            </Card>
+                </p>
+                <div className="border-t-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
+                  <div className="text-sm text-neutral-600 dark:text-neutral-200">
+                    <p>Features</p>
+                    <ol className="list-decimal list-inside">
+                      {item.features?.map((feature) => (
+                        <li key="{feature}">{feature}</li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+                <a
+                  href={item.button}
+                  className="block rounded bg-primary px-6 pb-2 pt-2.5 text-xs text-center font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  target="new"
+                >
+                  Try Now
+                </a>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -197,20 +256,26 @@ export const LandingContent = () => {
           {services.map((item) => (
             <Card
               key={item.description}
-              className="bg-[#192339] border-none text-white"
+              className="bg-[#192339] border-none text-white shadow-2xl"
             >
               <CardHeader>
                 <CardTitle className="flex items-center gap-x-2">
                   <div>
                     <p className="text-lg">{item.name}</p>
-                    <p
-                      className="text-zinc-400 text-sm underline"
-                      dangerouslySetInnerHTML={{ __html: item.title }}
-                    ></p>
+                    <p className="text-zinc-400 text-sm">{item.title}</p>
                   </div>
                 </CardTitle>
                 <CardContent className="pt-4 px-0">
-                  {item.description}
+                  <p className="pb-6">{item.description}</p>
+                  <a
+                    href={item.button}
+                    className="block rounded bg-primary px-6 pb-2 pt-2.5 text-xs text-center font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    data-te-ripple-init
+                    data-te-ripple-color="light"
+                    target="new"
+                  >
+                    Book a free Introductory call now
+                  </a>
                 </CardContent>
               </CardHeader>
             </Card>
@@ -225,20 +290,27 @@ export const LandingContent = () => {
           {whatWeDid.map((item) => (
             <Card
               key={item.description}
-              className="bg-[#192339] border-none text-white"
+              className="bg-[#192339] border-none text-white  shadow-2xl"
             >
               <CardHeader>
                 <CardTitle className="flex items-center gap-x-2">
                   <div>
                     <p className="text-lg">{item.name}</p>
-                    <p
-                      className="text-zinc-400 text-sm underline"
-                      dangerouslySetInnerHTML={{ __html: item.title }}
-                    ></p>
                   </div>
                 </CardTitle>
                 <CardContent className="pt-4 px-0">
-                  {item.description}
+                  <p className="pb-6">{item.description}</p>
+                  {item.button && (
+                    <a
+                      href={item.button}
+                      className="block rounded bg-primary px-6 pb-2 pt-2.5 text-xs text-center font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                      target="new"
+                    >
+                      Learn More
+                    </a>
+                  )}
                 </CardContent>
               </CardHeader>
             </Card>

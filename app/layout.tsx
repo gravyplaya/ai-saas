@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import Script from "next/script";
 
 import { ToasterProvider } from "@/components/toaster-provider";
 import { ModalProvider } from "@/components/modal-provider";
@@ -64,10 +65,20 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         {/* <CrispProvider /> */}
+        <head>
+          <link
+            key="VG_styles"
+            rel="stylesheet"
+            type="text/css"
+            href="https://storage.googleapis.com/speakwiz-app.appspot.com/pkl3y2ja9/build/styles.css"
+          />
+        </head>
         <body className={font.className}>
           <ToasterProvider />
           <ModalProvider />
           {children}
+          <div style={{ width: 0, height: 0 }} id="VG_OVERLAY_CONTAINER"></div>
+          <Script src="https://storage.googleapis.com/speakwiz-app.appspot.com/pkl3y2ja9/build/vg_bundle.js" />
         </body>
       </html>
     </ClerkProvider>

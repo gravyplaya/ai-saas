@@ -9,7 +9,7 @@ export const incrementApiLimit = async () => {
     return;
   }
 
-  const userApiLimit = await getUserApiLimit();
+  const userApiLimit = await getUserApiLimit(userId);
 
   //TODO
   // if (userApiLimit) {
@@ -31,7 +31,7 @@ export const checkApiLimit = async () => {
     return false;
   }
 
-  let userApiLimit: any = await getUserApiLimit();
+  let userApiLimit: any = await getUserApiLimit(userId);
 
   console.log("checkuserApiLimit", userApiLimit <= MAX_FREE_COUNTS);
 
@@ -40,8 +40,11 @@ export const checkApiLimit = async () => {
 
 export const getApiLimitCount = async () => {
   const { userId } = auth();
-  const userApiLimit = await getUserApiLimit();
-  if (!userId || !userApiLimit) {
+  if (!userId) {
+    return 0;
+  }
+  const userApiLimit = await getUserApiLimit(userId);
+  if (!userApiLimit) {
     return 0;
   }
   return userApiLimit;

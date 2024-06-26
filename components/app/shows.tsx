@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Message, MessageTypeEnum } from "@/lib/types/conversation.type";
-import { shows } from "@/data/shows";
+import { shows } from "../../assistants/data/shows";
 import { vapi } from "@/lib/vapi.sdk";
 
 interface ShowsComponentProps {

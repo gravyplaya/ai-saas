@@ -102,5 +102,4 @@ export {
   getCategories,
   getUserSubscription,
   getUserApiLimit,
-  getAssistants,
 };

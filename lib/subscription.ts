@@ -22,7 +22,7 @@ export const checkSubscription = async () => {
   //     stripePriceId: true,
   //   },
   // })
-  const userSubscription = (await getUserSubscription()) as UserSubscription;
+  const userSubscription = (await getUserSubscription(userId)) as UserSubscription;
 
   if (!userSubscription) {
     return false;

@@ -55,7 +55,7 @@ const LandingPage = () => {
       { id: 4, title: "The Universe Below", color: "#8e44ad" },
     ]
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '100vh' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '20vh' }}>
       {books.map((book) => (
         <motion.div
           key={book.id}

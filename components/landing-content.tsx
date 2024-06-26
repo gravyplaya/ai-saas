@@ -83,7 +83,7 @@ const services = [
   {
     name: "AI Tools",
     avatar: "M",
-    title: "Get Started Now For FREE",
+    title: "Get Started Now For FREE.",
     description:
       "Try everything from image, video and music generation to code generation and conversations.",
     button: "/sign-up",

@@ -1,8 +1,9 @@
 import { auth, currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { useSearchParams } from "next/navigation";
+import { getUserSubscription } from "@/lib/nocodb";
+import { UserSubscription } from "@/lib/types/UserSubscription";
 
-import prismadb from "@/lib/prismadb";
 import { stripe } from "@/lib/stripe";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -17,15 +18,12 @@ export async function GET() {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    const userSubscription = await prismadb.userSubscription.findUnique({
-      where: {
-        userId,
-      },
-    });
+    const userSubscription: UserSubscription =
+      (await getUserSubscription()) as UserSubscription;
 
-    if (userSubscription && userSubscription.stripeCustomerId) {
+    if (userSubscription && userSubscription.StripeCustomerId) {
       const stripeSession = await stripe.billingPortal.sessions.create({
-        customer: userSubscription.stripeCustomerId,
+        customer: userSubscription.StripeCustomerId,
         return_url: settingsUrl,
       });
 
@@ -38,6 +36,7 @@ export async function GET() {
       payment_method_types: ["card"],
       mode: "subscription",
       billing_address_collection: "auto",
+      client_reference_id: userId,
       customer_email: user.emailAddresses[0].emailAddress,
       line_items: [
         {
@@ -56,7 +55,7 @@ export async function GET() {
         },
       ],
       metadata: {
-        userId,
+        userId: userId,
       },
     });
 

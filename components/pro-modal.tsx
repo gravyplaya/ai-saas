@@ -19,6 +19,7 @@ import { useProModal } from "@/hooks/use-pro-modal";
 import { tools } from "@/constants";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { SubscriptionButton } from "@/components/subscription-button";
 
 export const ProModal = () => {
   const proModal = useProModal();

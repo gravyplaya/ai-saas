@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
-
-import prismadb from "@/lib/prismadb";
+import { getUserSubscription } from "@/lib/nocodb";
+import { UserSubscription } from "@/lib/types/UserSubscription";
 
 const DAY_IN_MS = 86_400_000;
 
@@ -11,25 +11,23 @@ export const checkSubscription = async () => {
     return false;
   }
 
-  const userSubscription = await prismadb.userSubscription.findUnique({
-    where: {
-      userId: userId,
-    },
-    select: {
-      stripeSubscriptionId: true,
-      stripeCurrentPeriodEnd: true,
-      stripeCustomerId: true,
-      stripePriceId: true,
-    },
-  })
+  // const userSubscription = await prismadb.userSubscription.findUnique({
+  //   where: {
+  //     userId: userId,
+  //   },
+  //   select: {
+  //     stripeSubscriptionId: true,
+  //     stripeCurrentPeriodEnd: true,
+  //     stripeCustomerId: true,
+  //     stripePriceId: true,
+  //   },
+  // })
+  const userSubscription = (await getUserSubscription()) as UserSubscription;
 
   if (!userSubscription) {
     return false;
   }
-
-  const isValid =
-    userSubscription.stripePriceId &&
-    userSubscription.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS > Date.now()
+  const isValid = userSubscription.Status === "active";
 
   return !!isValid;
 };

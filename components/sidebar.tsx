@@ -8,6 +8,7 @@ import {
   ImageIcon,
   LayoutDashboard,
   MessageSquare,
+  AudioLines,
   Music,
   Settings,
   VideoIcon,
@@ -26,6 +27,12 @@ const routes = [
     href: "/dashboard",
     color: "text-sky-500",
   },
+  // {
+  //   label: "Voice",
+  //   icon: AudioLines,
+  //   href: "/voice",
+  //   color: "text-violet-500",
+  // },
   {
     label: "Conversation",
     icon: MessageSquare,
@@ -33,25 +40,25 @@ const routes = [
     color: "text-violet-500",
   },
   {
-    label: "Image Generation",
+    label: "Images",
     icon: ImageIcon,
     color: "text-pink-700",
     href: "/image",
   },
   {
-    label: "Video Generation",
+    label: "Videos",
     icon: VideoIcon,
     color: "text-orange-700",
     href: "/video",
   },
   {
-    label: "Music Generation",
+    label: "Music",
     icon: Music,
     color: "text-emerald-500",
     href: "/music",
   },
   {
-    label: "Code Generation",
+    label: "Code",
     icon: Code,
     color: "text-green-700",
     href: "/code",
@@ -64,11 +71,11 @@ const routes = [
 ];
 
 export const Sidebar = ({
-  apiLimitCount = 0,
-  isPro = false,
+  apiLimitCount,
+  isPro,
 }: {
-  apiLimitCount: number;
-  isPro: boolean;
+  apiLimitCount: any;
+  isPro: any;
 }) => {
   const pathname = usePathname();
 

@@ -7,8 +7,10 @@ const nextConfig = {
       "cdn.openai.com",
       "replicate.delivery",
       "pbxt.replicate.delivery",
+      "pbs.twimg.com"
     ],
   },
+  transpilePackages: ["@ionic/react", "@ionic/core", "@stencil/core"],
 };
 
 module.exports = nextConfig;

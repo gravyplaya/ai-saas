@@ -1,17 +1,17 @@
 import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
-import { shows } from "../data/shows";
+import { shows } from "./data/shows";
 
 export const Paul: CreateAssistantDTO | any = {
   name: "Paul-broadway",
   model: {
     provider: "openai",
     model: "gpt-3.5-turbo",
-    temperature: 0.7,
-    systemPrompt: `You're Paul, an AI assistant who can help the user decide what do he/she wants to watch on Broadway. User can ask you to suggest shows and book tickets. You can get the list of available shows from broadway and show them to the user, and then you can help user decide which ones to choose and which broadway theatre they can visit. After this confirm the details and book the tickets. `,
-    // Upcoming Shows are ${JSON.stringify(
-    //   shows
-    // )}
-    // `,
+    temperature: 0.5,
+    systemPrompt: `You're Paul, an AI assistant who can help the user decide what do he/she wants to watch on Broadway. User can ask you to suggest shows and book tickets. You can get the list of available shows from broadway and show them to the user, and then you can help user decide which ones to choose and which broadway theatre they can visit. After this confirm the details and book the tickets. 
+    Upcoming Shows are ${JSON.stringify(
+      shows
+    )}
+    `,
     functions: [
       {
         name: "suggestShows",

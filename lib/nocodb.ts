@@ -37,36 +37,36 @@ function getCategories() {
       console.error(error);
     });
 }
-
-function getAssistants(userId: string) {
-  return api.dbViewRow
-    .list("noco", "pxfm1r0dydv8c29", "mho11bafpm2iyyl", "vw5bgelpm0gk5pm3", {
-      offset: 0,
-      where: "(userId,eq," + userId + ")",
-    })
-    .then(function (assistants) {
-      const options = {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer 0cdc051e-4a88-4745-870c-c78a8c829185",
-        },
-      };
-      fetch(
-        "https://api.vapi.ai/assistant/" + assistants.list[0].assistantId,
-        options
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          // console.log("resssy", response);
-          return response;
-        })
-        .catch((err) => console.error(err));
-      // return assistants.list || {};
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-}
+//TODO put back when adding the voice page
+// function getAssistants(userId: string) {
+//   return api.dbViewRow
+//     .list("noco", "pxfm1r0dydv8c29", "mho11bafpm2iyyl", "vw5bgelpm0gk5pm3", {
+//       offset: 0,
+//       where: "(userId,eq," + userId + ")",
+//     })
+//     .then(function (assistants) {
+//       const options = {
+//         method: "GET",
+//         headers: {
+//           Authorization: "Bearer 0cdc051e-4a88-4745-870c-c78a8c829185",
+//         },
+//       };
+//       fetch(
+//         "https://api.vapi.ai/assistant/" + assistants.list[0].assistantId,
+//         options
+//       )
+//         .then((response) => response.json())
+//         .then((response) => {
+//           // console.log("resssy", response);
+//           return response;
+//         })
+//         .catch((err) => console.error(err));
+//       // return assistants.list || {};
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+// }
 
 function getUserSubscription(userId: string) {
   return api.dbViewRow

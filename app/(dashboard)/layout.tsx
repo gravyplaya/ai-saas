@@ -9,9 +9,12 @@ import { UserSubscription } from "@/lib/types/UserSubscription";
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   const { userId } = auth();
-  const isPro = await getUserSubscription(userId).then((userSubscription) => {
-    return userSubscription && userSubscription.Status === "active";
-  });
+  if (!userId) {
+    throw new Error("User ID is null");
+  }
+
+  const userSubscription: UserSubscription | null = await getUserSubscription(userId) as UserSubscription | null;
+  const isPro = userSubscription && userSubscription.Status === "active";
 
   const apiLimitCount = (await getUserApiLimit(userId)) || 0; // Assign a default value of 0 if getUserApiLimit() returns void
 

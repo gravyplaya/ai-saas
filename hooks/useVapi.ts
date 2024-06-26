@@ -94,7 +94,7 @@ export function useVapi(assistantName?: string, assistantId?: string) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const start = async (id: string) => {
+  const start = async (id?: string) => {
     setCallStatus(CALL_STATUS.LOADING);
     console.log("Start Id", id);
     //const response = vapi.start("3395b2c0-8ca1-451a-b9db-3814fc317f7b");

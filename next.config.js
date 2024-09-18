@@ -11,6 +11,21 @@ const nextConfig = {
     ],
   },
   transpilePackages: ["@ionic/react", "@ionic/core", "@stencil/core"],
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'tavonni.com',
+          },
+        ],
+        destination: 'https://tavonnai.com/:path*',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

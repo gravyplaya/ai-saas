@@ -14,14 +14,14 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/:path*',
+        source: '/',
         has: [
           {
             type: 'host',
             value: 'tavonni.com',
           },
         ],
-        destination: 'https://tavonnai.com/:path*',
+        destination: 'https://tavonnai.com/',
         permanent: false,
       },
     ];

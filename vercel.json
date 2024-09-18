@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      {
+        "source": "https://tavonni.com",
+        "destination": "https://tavonnai.com",
+        "permanent": false
+      }
+    ]
+  }
